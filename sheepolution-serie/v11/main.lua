@@ -17,12 +17,12 @@ function love.load()
 
     -- usar camadas
     --  -- camada wall, onde o player esbarra
-    --  -- camada collect, o que o player coleta
+    --  -- camada objetos, o que o player coleta
     --  -- camada ornamento 1, o player passa por cima desse ornamento
     --  -- camada ornamento 2, o player passa por baixo desse ornamento
     --  -- camada background, o plano de fundo ou cor aplicada e movimentada se for parallax
     --  -- inimigos, nao precisa ser uma camada, pode ser colocado no mapa
-    --               grupos de inimigos diferentes = comportamento diferente aos inimigos
+    --               grupos de inimigos diferentes = comportamento diferente dos inimigos
 
     mapa = {
         {1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1},
