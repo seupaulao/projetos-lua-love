@@ -28,30 +28,32 @@ function love.load()
     selectedX = 0
     selectedY = 0
     grade = {}
-    for y = 1, gridYCount do
-        grade[y] = {}
-        for x = 1, gridXCount do
-            grade[y][x] = { 
-                flower = false,
-                state = 'covered', --covered or uncovered
-            }
+    gameOver = false
+    firstClick=true
+
+    function reset()
+        grade = {}
+
+        for y = 1, gridYCount do
+            grade[y] = {}
+            for x = 1, gridXCount do
+                grade[y][x] = { 
+                    flower = false,
+                    state = 'covered', --covered or uncovered
+                }
+            end
         end
-    end
+
+        gameOver = false
+        firstClick=true
+
+       
+    
+    end 
     --temporario
-    grade[1][1].state='flag'
-    grade[2][1].state='question'
+    --grade[1][1].state='flag'
+    --grade[2][1].state='question'
 
-    local possiveisPosicoesFlores = {}
-    for y=1,gridYCount do
-        for x=1,gridXCount do 
-            table.insert(possiveisPosicoesFlores,{x=x,y=y})
-        end
-    end
-
-    for flowerIndex = 1,40 do 
-        local posicao = table.remove(possiveisPosicoesFlores, love.math.random(#possiveisPosicoesFlores))
-        grade[posicao.y][posicao.x].flower = true
-    end
 
     function getFloresAoRedorCount(x,y)
         local floresAoRedorCount = 0
@@ -68,7 +70,9 @@ function love.load()
         return floresAoRedorCount
     end
 
-    gameOver = false
+    reset()
+
+
 
 end
 
@@ -86,6 +90,22 @@ function love.mousereleased(mouseX, mouseY, button)
    -- end
     if not gameOver then 
         if button == 1 and grade[selectedY][selectedX].state ~= 'flag' then 
+            if firstClick then 
+                firstClick = false
+                local possiveisPosicoesFlores = {}
+                for y=1,gridYCount do
+                    for x=1,gridXCount do 
+                        if not( x == selectedX and y == selectedY) then 
+                            table.insert(possiveisPosicoesFlores,{x=x,y=y})
+                        end
+                    end
+                end
+            
+                for flowerIndex = 1,40 do 
+                    local posicao = table.remove(possiveisPosicoesFlores, love.math.random(#possiveisPosicoesFlores))
+                    grade[posicao.y][posicao.x].flower = true
+                end
+            end
             if grade[selectedY][selectedX].flower then 
                 grade[selectedY][selectedX].state = 'uncovered'
                 gameOver = true
@@ -144,7 +164,7 @@ function love.mousereleased(mouseX, mouseY, button)
             end    
         end
     else 
-        love.load()    
+        reset()    
     end
 end
 
