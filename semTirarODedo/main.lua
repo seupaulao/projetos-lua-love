@@ -25,6 +25,7 @@ function love.load()
     inicio = false
 end
 
+
 function novaFase()
     contador = 0
     player.x = arenaWidth/2

@@ -70,6 +70,7 @@ java -jar ../uber-apk-signer-1.1.0.jar --apks your_game.apk
 ------------------------
 
 ### Compilei a versão ADMOB para love 11.3 APK 
+0. como colocar/chamar o admob do jogo? [ver o teste]
 1. funcionou rodar a versão admob teste para love 11.3, testei com sucesso:
    - interticial
    - banner

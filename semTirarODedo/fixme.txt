@@ -1,0 +1,10 @@
+-- incluir
+---- zona de pouso
+---- bomba
+---- dinheiro
+---- mapas
+------ com parede
+------ sem parede
+------ 1 tela
+------ multi tela
+

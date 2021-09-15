@@ -1,0 +1,9 @@
+- usar palheta minima, escolher no maximo 4 cores:
+      - marrom, marrom claro, branco e preto
+      - vermelho, vermelho claro, branco e preto
+- tentar usar parallax ou apenas mover o cenario
+- bomba ou dinamite
+- powerups ou nao
+- inimigos 
+- chefes?
+      
