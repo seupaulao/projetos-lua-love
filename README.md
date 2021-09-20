@@ -7,9 +7,7 @@ games/apps objetivos:
 - snake
 - tiles troca
 - sem tirar o dedo
-- zero gravidade
 - memória
 - abirobadozim
-- app chave valor
 - app zuada
 - visual novel - mistério e memorização  

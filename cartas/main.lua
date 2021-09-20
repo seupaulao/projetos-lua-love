@@ -11,29 +11,31 @@ function love.load()
       images[name] = love.graphics.newImage('images/'..name..'.png')
   end
 
-  deque = {}
+  deque = resetDeque()
+
+  contador = 1
+
+end
+
+function resetDeque(deq)
+  local baralho = {}
   for naipeIndex, naipe in ipairs({'club','spade','heart','diamond'}) do
-      for rank=1,13 do
-         table.insert(deque, {suit=naipe, rank=rank})
-	--       print("naipe: "..naipe.."   rank: "..rank)
-      end
+    for rank=1,13 do
+       table.insert(baralho, {suit=naipe, rank=rank})
+    end
   end
- -- print("total de cartas:"..#deque)
---  testHand1 = {
---   {suit = 'club', rank = 1},
---   {suit = 'diamond', rank = 2},
---   {suit = 'heart', rank = 3},
---   {suit = 'spade', rank = 4},
---   {suit = 'club', rank = 5},
---   {suit = 'diamond', rank = 6},
---   {suit = 'spade', rank = 7},
---   {suit = 'club', rank = 8},
---   {suit = 'diamond', rank = 9},
---   {suit = 'heart', rank = 10},
--- }
+  return baralho
+end
 
-contador = 1
 
+function embaralhar()
+    local n = #deque
+    for i=n,1,-1 do
+       local j = Math.floor(Math.random() * (i + 1))
+       local tmp = deque[j]
+       deque[i] = deque[j]
+       deque[j] = tmp 
+    end
 end
 
 function love.keypressed(key)
