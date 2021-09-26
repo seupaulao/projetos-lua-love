@@ -1,4 +1,10 @@
+
+
 function love.load()
+  Object = require "classic"
+
+  require "baralho"
+  require "funcoes"
 
   images = {}
   for nameIndex, name in ipairs({
@@ -11,46 +17,44 @@ function love.load()
       images[name] = love.graphics.newImage('images/'..name..'.png')
   end
 
-  deque = resetDeque()
+  baralhos = {}
 
-  contador = 1
+  table.insert(baralhos, Baralho(criarDeque()))
+  --deque = criarDeque()
+  --deque = embaralhar(deque)
 
+  indice = 1
+  baralhos[indice]:setCartas(embaralhar(baralhos[indice]:getCartas()))
+  --print(baralhos[indice]:qte())
+  --print(baralhos[indice]:cont())
+  --printCards(baralhos[indice]:getCartas())
 end
 
-function resetDeque(deq)
-  local baralho = {}
-  for naipeIndex, naipe in ipairs({'club','spade','heart','diamond'}) do
-    for rank=1,13 do
-       table.insert(baralho, {suit=naipe, rank=rank})
-    end
-  end
-  return baralho
-end
+--1. criar contador_deques = armazena o numero de deques
+--2. criar tela abertura, tela de doação ou ad em video
+--3. criar tela de pontuacao
+--4. criar tela de escolher a quantidade de deques
+--5. criar tela de visualizar as cartas
+--6. melhorar a tela do jogo : até 8 deques por subtela, cada subtela eh uma pagina, mostrar qual pagina está sendo exibida
+--7. pontuacao : usuario, qte deques, num total cartas, qte acertos cartas, qte erros cartas
+--8. navegacao : avancar tela, voltar tela, primeira tela, ultima tela, proximo deque, deque anterior
+--9. criar bordas para todas as telas, alem da informacao
+--10. pintar o deque atual de vermelho, ou claro; e os deques não trabalhados deve-se escurecer
 
 
-function embaralhar()
-    local n = #deque
-    for i=n,1,-1 do
-       local j = Math.floor(Math.random() * (i + 1))
-       local tmp = deque[j]
-       deque[i] = deque[j]
-       deque[j] = tmp 
-    end
-end
+
 
 function love.keypressed(key)
   if key=='escape' then
     love.event.quit()
   elseif key=='n' then
-    contador = contador + 1
-    if contador > #deque then 
-      contador  =1
-    end   
+    baralhos[indice]:add() 
   elseif key=='p' then
-    contador = contador - 1
-    if contador <= 0 then 
-      contador  = 1
-    end   
+    baralhos[indice]:rem()
+  elseif key == 'e' then
+    baralhos[indice]:setCartas(embaralhar(baralhos[indice]:getCartas()))
+    --printCards(baralhos[indice]:getCartas())
+    baralhos[indice]:zerar()
   end
 end
 
@@ -188,12 +192,12 @@ function love.draw()
   end
 
 
-if contador < #deque then 
+if  baralhos[indice]:cont() < baralhos[indice]:qte() then 
     love.graphics.setColor(1, 1, 1)
     love.graphics.draw(images.card_face_down, 60, 20)
 end
 
-drawCard(deque[contador], 2 * 60, 20)
+drawCard(baralhos[indice]:getCarta(), 2 * 60, 20)
 
 
 end
