@@ -5,6 +5,7 @@ function love.load()
 
   require "baralho"
   require "funcoes"
+  require "telas"
 
   images = {}
   for nameIndex, name in ipairs({
@@ -24,23 +25,12 @@ function love.load()
   --deque = embaralhar(deque)
 
   indice = 1
+  numDeques = 1
   baralhos[indice]:setCartas(embaralhar(baralhos[indice]:getCartas()))
   --print(baralhos[indice]:qte())
   --print(baralhos[indice]:cont())
   --printCards(baralhos[indice]:getCartas())
 end
-
---1. criar contador_deques = armazena o numero de deques
---2. criar tela abertura, tela de doação ou ad em video
---3. criar tela de pontuacao
---4. criar tela de escolher a quantidade de deques
---5. criar tela de visualizar as cartas
---6. melhorar a tela do jogo : até 8 deques por subtela, cada subtela eh uma pagina, mostrar qual pagina está sendo exibida
---7. pontuacao : usuario, qte deques, num total cartas, qte acertos cartas, qte erros cartas
---8. navegacao : avancar tela, voltar tela, primeira tela, ultima tela, proximo deque, deque anterior
---9. criar bordas para todas as telas, alem da informacao
---10. pintar o deque atual de vermelho, ou claro; e os deques não trabalhados deve-se escurecer
-
 
 
 
