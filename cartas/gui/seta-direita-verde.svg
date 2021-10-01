@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+
+<svg
+   xmlns:dc="http://purl.org/dc/elements/1.1/"
+   xmlns:cc="http://creativecommons.org/ns#"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   width="32"
+   height="32"
+   viewBox="0 0 8.4666665 8.4666669"
+   version="1.1"
+   id="svg16"
+   inkscape:version="0.92.5 (2060ec1f9f, 2020-04-08)"
+   sodipodi:docname="seta-direita-verde.svg"
+   inkscape:export-filename="/home/paulo/Documentos/projetos-lua-love/cartas/gui/seta-direita-verde.png"
+   inkscape:export-xdpi="3.8699999"
+   inkscape:export-ydpi="3.8699999">
+  <defs
+     id="defs10">
+    <filter
+       inkscape:collect="always"
+       style="color-interpolation-filters:sRGB"
+       id="filter5694"
+       x="-0.10445317"
+       width="1.2089063"
+       y="-0.10434688"
+       height="1.2086938">
+      <feGaussianBlur
+         inkscape:collect="always"
+         stdDeviation="0.35424896"
+         id="feGaussianBlur5696" />
+    </filter>
+  </defs>
+  <sodipodi:namedview
+     id="base"
+     pagecolor="#ffffff"
+     bordercolor="#666666"
+     borderopacity="1.0"
+     inkscape:pageopacity="0.0"
+     inkscape:pageshadow="2"
+     inkscape:zoom="11.689359"
+     inkscape:cx="14.747691"
+     inkscape:cy="5.9728814"
+     inkscape:document-units="mm"
+     inkscape:current-layer="layer1"
+     showgrid="false"
+     units="px"
+     inkscape:window-width="1608"
+     inkscape:window-height="986"
+     inkscape:window-x="72"
+     inkscape:window-y="27"
+     inkscape:window-maximized="1" />
+  <metadata
+     id="metadata13">
+    <rdf:RDF>
+      <cc:Work
+         rdf:about="">
+        <dc:format>image/svg+xml</dc:format>
+        <dc:type
+           rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
+        <dc:title></dc:title>
+      </cc:Work>
+    </rdf:RDF>
+  </metadata>
+  <g
+     inkscape:label="Camada 1"
+     inkscape:groupmode="layer"
+     id="layer1"
+     transform="translate(0,-288.53332)">
+    <g
+       id="g5700"
+       transform="matrix(0.92844474,0,0,0.87565374,0.42810315,36.320805)">
+      <path
+         style="fill:#000000;fill-opacity:0.32568808;stroke:#000000;stroke-width:0;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1;filter:url(#filter5694)"
+         d="m 0.44839642,292.36159 c 1.62305688,0.5014 3.24611348,0.56407 4.86917038,0 0.5813935,-1.16995 -1.1627871,-1.71313 -1.7441806,-2.5697 0.7994159,0.0208 1.598832,0.0418 2.398248,0.0627 0.8720903,1.56688 1.6715062,2.31899 2.5435966,3.88587 -0.7751913,1.12815 -1.4777083,3.07108 -2.2528996,4.19923 -0.7751914,0 -1.5503827,-10e-6 -2.325574,-10e-6 0.4602697,-1.14906 1.7199556,-2.0474 1.3808093,-3.44715 -1.4292588,-0.6476 -3.2218886,-0.41789 -4.94184429,-0.0627 0.0242253,-0.68942 0.048449,-1.37883 0.0726742,-2.06825 z"
+         id="path21"
+         inkscape:connector-curvature="0"
+         sodipodi:nodetypes="cccccccccc" />
+      <path
+         sodipodi:nodetypes="cccccccccc"
+         inkscape:connector-curvature="0"
+         id="path18"
+         d="m 0.20046649,291.36987 c 1.62305691,0.5014 3.24611351,0.56407 4.86917041,0 0.5813935,-1.16995 -1.1627871,-1.71313 -1.7441806,-2.5697 0.7994159,0.0208 1.598832,0.0418 2.398248,0.0627 0.8720903,1.56688 1.6715062,2.31899 2.5435966,3.88587 -0.7751913,1.12815 -1.4777083,3.07108 -2.2528996,4.19923 -0.7751914,0 -1.5503827,-10e-6 -2.325574,-10e-6 0.4602697,-1.14906 1.7199556,-2.0474 1.3808093,-3.44715 -1.4292588,-0.6476 -3.2218886,-0.41789 -4.94184432,-0.0627 0.0242253,-0.68942 0.048449,-1.37883 0.0726742,-2.06825 z"
+         style="fill:#d4ff2a;stroke:#000000;stroke-width:0.3601155px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1" />
+    </g>
+  </g>
+</svg>
