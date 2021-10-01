@@ -29,10 +29,11 @@ function drawCButton(texto,x,y)
 end
 
 function telaAbertura()
-    love.graphics.print("CARD's MEMORY",100,100)
-    love.graphics.print("START",100,240)
-    love.graphics.print("HELP",100,360)
-    love.graphics.draw(gui[1],240,100)
+    love.graphics.setBackgroundColor(0/255,0/255,180/255)	
+    love.graphics.print("CARD's MEMORY",240,100)
+    love.graphics.print("START",240,140)
+    love.graphics.print("HELP",240,180)
+    love.graphics.draw(gui[1],300,130,0,1,1)
 end
 
 function telaDefinirQuantidadeDeques()
