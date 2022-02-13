@@ -137,20 +137,31 @@ function construirVetorPreco(amostra)
     return v
 end
 
-function zerarMatriz(amostra, precos)
+function zerarMatriz(amostra, precos, tipo)
     local dados = {}
     for i=1,#precos do 
         dados[i] = {}
         for j=1,#amostra do 
-            dados[i][j] = '0'
+            dados[i][j] = '0'    
+--            if tipo == 'f' then 
+                dados[i][j] = '.'
+--            else
+--                dados[i][j] = '0'
+--            end            
         end
     end
     return dados 
 end
 
-function zerarBarra(precos)
+function zerarBarra(precos, tipo)
     local barra ={}
-    for i=1,#precos do barra[i]='0' end
+    for i=1,#precos do 
+ --       if tipo == 'f' then 
+            barra[i]='.'
+--        else
+--            barra[i]='0'
+--        end
+    end    
     return barra
 end
 
@@ -163,7 +174,7 @@ function buscarPosicaoPreco(precos, valor)
 end
 
 function vetorBarraPreco(precos, item, tipo)
-    local barra = zerarBarra(precos)
+    local barra = zerarBarra(precos, tipo)
     --sombras
     if tipo=='a' then 
         local inicio = buscarPosicaoPreco(precos, item.high)
@@ -196,6 +207,21 @@ function vetorBarraPreco(precos, item, tipo)
     elseif tipo == 'l' then 
         local inicio = buscarPosicaoPreco(precos, item.low)
         barra[inicio]='*'
+    elseif tipo == 'f' then
+        local inicio = buscarPosicaoPreco(precos, item.high)
+        local fim = buscarPosicaoPreco(precos, item.low)
+        local temp = math.abs(item.close - item.open)
+        --if math.abs(temp) >= 1.5 then 
+            if item.close > item.open then
+                for i=inicio,fim do
+                    barra[i]='x'
+                end
+            else 
+                for i=inicio,fim do
+                    barra[i]='o'
+                end            
+            end
+        --end    
     end
 return barra
 end
@@ -230,9 +256,9 @@ function ehSimbolo(simbolo)
 end
 
 function imprimirMatriz(amostra, precos, tipo, chaves)
-    local matriz = zerarMatriz(amostra, precos)
+    local matriz = zerarMatriz(amostra, precos, tipo)
     for j=1,#amostra do 
-        local barra = vetorBarraPreco(precos, amostra[j],tipo)
+        local barra = vetorBarraPreco(precos, amostra[j], tipo)
         for i=1,#precos do 
             matriz[i][j]=barra[i]
         end
@@ -274,7 +300,7 @@ function loop()
         local amostra = separarAmostra(dados,ini,fim)
         local vetorPreco = construirVetorPreco(amostra)
         print(amostra[1].data,amostra[1].hora,amostra[#amostra].hora)
-	print('m - Exibir Menu; q - sair')
+	    print('m - Exibir Menu; q - sair')
         imprimirMatriz(amostra, vetorPreco,tipografico,marcas)
         op=io.read()
         if op == 'e' or op == '' or op==' ' or op==nil then 
@@ -285,12 +311,13 @@ function loop()
                 ini = fim - n
             end
         elseif op == 'm' then
-            print('z - reset; w - pagina anterior; e - proxima pagina; ')
-	    print('k - grafico candle; h - high line; l - low line; i - grafico high/low;  ')
+            print('z - reset; w - pagina anterior; e - proxima pagina; r - mostrar datas disponiveis')
+	        print('k - grafico candle; h - high line; l - low line; i - grafico high/low; u - ponto e figura ')
             print('g - ir para; x - regua; n - aumentar numero velas; m - diminuir numero velas; ')
             print('r - marcar região; f - desmarcar ultima região; b - desmarcar região; ')
-	    print('a - diminuir 1 barra; d - aumentar uma barra; c - compra a mercado; v - venda a mercado')
-	    print('$> comando + [ENTER]')
+	        print('a - diminuir 1 barra; d - aumentar uma barra; c - compra a mercado; v - venda a mercado')
+	        print('$> comando + [ENTER]')
+            io.read()
         elseif op == 'w' then 
             ini = ini - n 
             fim = fim - n
@@ -299,7 +326,9 @@ function loop()
                 fim = n
             end
         elseif op == 'c' or op == 'v' then
- 	    print('EM DESENVOLVIMENTO')	
+ 	        print('EM DESENVOLVIMENTO')	
+        elseif op == 'r' then
+            print('EM DESENVOLVIMENTO')	
         elseif op == 'a' then 
             ini = ini - 1
             fim = fim - 1
@@ -322,6 +351,8 @@ function loop()
             tipografico = 'l'
         elseif op == 'i' then
     	    tipografico='a'	
+        elseif op == 'u' then
+    	    tipografico='f'	
         elseif op == 'n' then
             n = n + 1
             --ini = 1
