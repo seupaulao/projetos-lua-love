@@ -3,8 +3,8 @@ function love.load()
     gridXCount = math.floor(love.graphics.getWidth()/cellSize)
     gridYCount = math.floor(love.graphics.getHeight()/cellSize)
     
-    --comida que aumenta 1 celula
-    --comida que aumenta 2 celulas
+    --comida que aumenta 1 celula         OK
+    --comida que aumenta 2 celulas        OK         
     --comida bomba que mata pelo tempo se nao for consumida
     ------explosao da bomba
     ------quebrar a cobra ao explodir bomba
@@ -31,7 +31,7 @@ function love.load()
                 end
 
                 if possible then
-                    table.insert(possibleFoodPositions, {x = foodX, y = foodY})
+                    table.insert(possibleFoodPositions, {x = foodX, y = foodY, t=love.math.random(2)})
                 end
             end
         end
@@ -98,7 +98,10 @@ function love.update(dt)
             if canMove then 
                 table.insert(snakeSegments, 1, {x = nextXPosition, y = nextYPosition})
         
-                if snakeSegments[1].x == foodPosition.x and snakeSegments[1].y == foodPosition.y  then
+                if snakeSegments[1].x == foodPosition.x and snakeSegments[1].y == foodPosition.y and foodPosition.t==1 then
+                    moveFood()
+                elseif snakeSegments[1].x == foodPosition.x and snakeSegments[1].y == foodPosition.y and foodPosition.t==2 then
+                    table.insert(snakeSegments, 1, {x = nextXPosition, y = nextYPosition})
                     moveFood()
                 else 
                     table.remove(snakeSegments)
@@ -158,8 +161,16 @@ function love.draw()
         end
         drawCell(segment.x, segment.y)
     end
-
-    love.graphics.setColor(1, .3, .3)
+   
+    if foodPosition.t ==1 then 
+	 love.graphics.setColor(1, .3, .3)
+    else
+	 love.graphics.setColor(1, .7, .3)    	 
+    end
     drawCell(foodPosition.x, foodPosition.y)
 
 end
+
+
+
+
